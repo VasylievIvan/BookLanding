@@ -55,15 +55,20 @@ function gradient_resize() {
 function feature_bg_resize() {
 	if(window.matchMedia("screen and (min-width: 320px)").matches) {
 
-   	$(".background-bottom").width($(window).width());
+   	$(".background-bottom").width($(window).width()+20);
 
    	if(window.matchMedia("screen and (max-width: 600px)").matches) {
-   	$(".background-bottom").css("margin-left", ((320 - $(window).width())/2 + "px" ));
+   	$(".background-bottom").css("margin-left", ((300 - $(window).width())/2 + "px" ));
    }
    else {
    	$(".background-bottom").css("margin-left", 0 + "px" );
 
    }
+
+   }
+   else {
+   	$(".background-bottom").css("margin-left", 0 + "px" );
+   	$(".background-bottom").width('340px');
    }
 }
 function content_resize() {
@@ -517,7 +522,9 @@ $(document).ready(function(){
 									<textarea type="text"></textarea>
 								</div>
 							</div>
-							<input type="button" value="ОСТАВИТЬ ОТЗЫВ" id="comment">
+							<div class="comment-wrapper">
+								<input type="button" value="ОСТАВИТЬ ОТЗЫВ" id="comment">
+							</div>
 						</form>
 					</div>
 				

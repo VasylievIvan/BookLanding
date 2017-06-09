@@ -410,7 +410,11 @@ p.error {
 	color: #c6c6c6;
 	background-color: #ffffff;	
 }
-
+.comment-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
 #comment {
 	background-color: #73c3ee;
 	color: #ffffff;
@@ -420,7 +424,7 @@ p.error {
 	border-radius: 6px;
 	box-shadow: none;
 	border-style: none;
-	margin-left: 40%;
+	margin: 0 auto;
 	padding: 0 25px;
 	user-select: none; 
  	outline: none; 
@@ -1077,9 +1081,15 @@ mark {
 	.data {
 		margin-top: 10px;
 	}
+	.comment-wrapper {
+		margin-bottom: 125px;
+	}
+	.download {
+		margin-top: 75px;
+	}
 
 	#comment {
-		margin-left: 35px;
+		
 	}
 	.reply {
 		height: 1070px;
