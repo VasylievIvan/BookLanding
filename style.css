@@ -430,6 +430,9 @@ p.error {
 a {
 	text-decoration: none;
 }
+#confid {
+	text-decoration: underline;
+}
 
 #download {
 	display: block;
