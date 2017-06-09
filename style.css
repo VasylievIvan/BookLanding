@@ -1019,6 +1019,7 @@ mark {
 	.fields {
 		height: 650px;
 		flex-wrap: nowrap;
+		margin-bottom: 40px;
 	}
 
 	.button-main-form {
@@ -1085,9 +1086,7 @@ mark {
 	.comment-wrapper {
 		margin-bottom: 125px;
 	}
-	.download {
-		margin-top: 75px;
-	}
+	
 
 	#comment {
 		
