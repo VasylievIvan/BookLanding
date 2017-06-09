@@ -36,10 +36,10 @@ $(window).scroll(function() {
 function gradient_resize() {
 	if(window.matchMedia("screen and (min-width: 320px)").matches) {
 
-   	$(".background-middle").width($(window).width());
+   	$(".background-middle").width($(window).width()+20);
    	$(".mob").css("margin-top", ((320 - $(window).width())/2 - 75 + "px" ));
    	if(window.matchMedia("screen and (max-width: 600px)").matches) {
-   	$(".background-middle").css("margin-left", ((320 - $(window).width())/2 + "px" ));
+   	$(".background-middle").css("margin-left", ((320 - $(window).width()-20)/2 + "px" ));
    }
    else {
    	$(".background-middle").css("margin-left", 0 + "px" );
