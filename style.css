@@ -872,7 +872,7 @@ mark {
 		flex-direction: row;
 		justify-content: space-between;
 		width: 180px;
-		margin-top: 40px;
+		margin-top: -50px;
 	}
 	.feature p {
 		width: auto;
@@ -1080,6 +1080,7 @@ mark {
 	}
 	.data {
 		margin-top: 10px;
+		display: inline-block;
 	}
 	.comment-wrapper {
 		margin-bottom: 125px;
