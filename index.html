@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
@@ -33,11 +34,11 @@ $(window).scroll(function() {
 });
 
 function gradient_resize() {
-	if($(window).width() >= '320') {
+	if(window.matchMedia("screen and (min-width: 320px)").matches) {
 
    	$(".background-middle").width($(window).width());
    	$(".mob").css("margin-top", ((320 - $(window).width())/2 - 75 + "px" ));
-   	if($(window).width() <= '583') {
+   	if(window.matchMedia("screen and (max-width: 600px)").matches) {
    	$(".background-middle").css("margin-left", ((320 - $(window).width())/2 + "px" ));
    }
    else {
@@ -47,13 +48,16 @@ function gradient_resize() {
 
    }
    }
+   else {
+   	$(".background-middle").width('340px');
+   }
 }
 function feature_bg_resize() {
-	if($(window).width() >= '320') {
+	if(window.matchMedia("screen and (min-width: 320px)").matches) {
 
    	$(".background-bottom").width($(window).width());
 
-   	if($(window).width() <= '583') {
+   	if(window.matchMedia("screen and (max-width: 600px)").matches) {
    	$(".background-bottom").css("margin-left", ((320 - $(window).width())/2 + "px" ));
    }
    else {
@@ -63,8 +67,8 @@ function feature_bg_resize() {
    }
 }
 function content_resize() {
-	if($(window).width() >= '584') {
-		if($(window).width() <= '1170') {
+	if(window.matchMedia("screen and (min-width: 601px)").matches) {
+		if(window.matchMedia("screen and (max-width: 1170px)").matches) {
 	   	$(".content").width($(window).width() - 60);
    }
    else{
@@ -76,8 +80,8 @@ function content_resize() {
    }
 }
 function contact_margin() {
-	if($(window).width() >= '800') {
-		if($(window).width() <= '1170') {
+	if(window.matchMedia("screen and (min-width: 800px)").matches) {
+		if(window.matchMedia("screen and (max-width: 1170px)").matches) {
 	   	$(".contact").css("margin-left", (480 - (1184 - $(window).width()) + "px" ));
    }
    else{
@@ -95,8 +99,8 @@ function contact_margin() {
 }
 
 function block_margin() {
-	if($(window).width() >= '584') {
-		if($(window).width() <= '963') {
+	if(window.matchMedia("screen and (min-width: 601px)").matches) {
+		if(window.matchMedia("screen and (max-width: 980px)").matches) {
 	   	$(".block").css("margin-left", (($(window).width() - 640)/2 + "px" ));
 	   	$(".background-top").css("left", (($(window).width() - 440)/2 + "px" ));
 	   	$(".background-top").css("width", (350 + "px" ));
@@ -119,10 +123,10 @@ function block_margin() {
 }
 
 function book_resize() {
-	if($(window).width() >= '964') {
-		if($(window).width() <= '1160') {
+	if(window.matchMedia("screen and (min-width: 981px)").matches) {
+		if(window.matchMedia("screen and (max-width: 1160px)").matches) {
 			$(".main-book").css("display", "block" );
-	   	$(".main-book").width($(window).width() - 693);
+	   	$(".main-book").width($("body").innerWidth() - 693);
 	   	$(".main-book").css("margin-top", (25+(467-$(".main-book").width()) + "px" ));
 	   	$(".main-book").css("margin-right", 20 + "px" );
    }
@@ -141,8 +145,8 @@ function book_resize() {
    }
 }
 function book2_resize() {
-	if($(window).width() >= '964') {
-		if($(window).width() <= '1160') {
+	if(window.matchMedia("screen and (min-width: 981px)").matches) {
+		if(window.matchMedia("screen and (max-width: 981px)").matches) {
 			$("#scroll-book").css("display", "block" );
 	   	$("#scroll-book").width($(window).width() - 693);
 	   	$("#scroll-book").css("margin-top", (25+(467-$("#scroll-book").width())/2 + "px" ));
@@ -188,12 +192,12 @@ $(document).ready(function(){
    		}
    		else {
    			$(".field-first-name .flag").show();
-   			$(".field-first-name .flag").css("background-image", "url(img/field_correct.png)")
+   			$(".field-first-name .flag").css("background-image", "url(img/field_correct.png)");
    			$("#input-first-name").css("border-color", "#35aa49");
    			$("#input-first-name-error").hide();
    			$(".field-first-name").css("margin-bottom","30px");
    		}
-   	})
+   	});
    	$("#input-second-name").focusout(function(){
    		if ($("#input-second-name").val().length == 0 ) {
    			$(".field-second-name .flag").show();
@@ -204,12 +208,12 @@ $(document).ready(function(){
    		}
    		else {
    			$(".field-second-name .flag").show();
-   			$(".field-second-name .flag").css("background-image", "url(img/field_correct.png)")
+   			$(".field-second-name .flag").css("background-image", "url(img/field_correct.png)");
    			$("#input-second-name").css("border-color", "#35aa49");
    			$("#input-second-name-error").hide();
    			$(".field-second-name").css("margin-bottom","30px");
    		}
-   	})
+   	});
 
    	$("#input-phone").focusout(function(){
    		if ($("#input-phone").val().length == 0 ) {
@@ -221,12 +225,12 @@ $(document).ready(function(){
    		}
    		else {
    			$(".field-phone .flag").show();
-   			$(".field-phone .flag").css("background-image", "url(img/field_correct.png)")
+   			$(".field-phone .flag").css("background-image", "url(img/field_correct.png)");
    			$("#input-phone").css("border-color", "#35aa49");
    			$("#input-phone-error").hide();
    			$(".field-phone").css("margin-bottom","30px");
    		}
-   	})
+   	});
 
    	$("#input-email").focusout(function(){
    		if ($("#input-email").val().length == 0 ) {
@@ -252,14 +256,15 @@ $(document).ready(function(){
 
 
    			$(".field-email .flag").show();
-   			$(".field-email .flag").css("background-image", "url(img/field_correct.png)")
+   			$(".field-email .flag").css("background-image", "url(img/field_correct.png)");
    			$("#input-email").css("border-color", "#35aa49");
    			$("#input-email-error1").hide();
    			$(".field-email").css("margin-bottom","30px");
    			$("#input-email-error2").hide();
    			}
    		}
-   	})
+   	});
+
    	$("#input-phone").focusout(function(){
    		if ($("#input-phone").val().length == 0 ) {
    			$("#input-phone-error2").hide();
@@ -283,14 +288,38 @@ $(document).ready(function(){
 
 
    			$(".field-phone .flag").show();
-   			$(".field-phone .flag").css("background-image", "url(img/field_correct.png)")
+   			$(".field-phone .flag").css("background-image", "url(img/field_correct.png)");
    			$("#input-phone").css("border-color", "#35aa49");
    			$("#input-phone-error1").hide();
    			$(".field-phone").css("margin-bottom","30px");
    			$("#input-phone-error2").hide();
    			}
    		}
-   	})
+   	});
+   	$("#select-country").focusout(function(){
+   		$(".select-country .flag").show();
+   		$(".select-country .flag").css("background-image", "url(img/field_correct.png)");
+   		$("#select-country").css("border-color", "#35aa49");
+   	});
+
+   	$("#input-skype").focusout(function(){
+   		if ($("#input-skype").val().length == 0 ) {
+   			$(".field-skype .flag").hide();
+   			$("#input-skype").css("border-color", "#555555");
+   		}
+   		else {
+   			$(".field-skype .flag").show();
+   			$(".field-skype .flag").css("background-image", "url(img/field_correct.png)");
+   			$("#input-skype").css("border-color", "#35aa49");
+   		}
+   	});
+   	$('#select-country').keydown(function(eventObject){
+  		if(eventObject.which == 9) {
+  			//alert("sdsdsd");
+  			$("#confid").focus();
+
+  		}
+});
 
 });
 
@@ -340,7 +369,7 @@ $(document).ready(function(){
 								<div class="field select-country">
 									<p>Страна проживания</p>
 									<div class="flag"></div>
-									<select id="select-coutry">
+									<select id="select-country">
 									<option>Украина</option>
 									<option>Россия</option>
 									<option>Беларусь</option>
@@ -348,12 +377,13 @@ $(document).ready(function(){
 									<option>22222</option>
 									<option>33333</option>
 									</select>
+									
 
 								</div>
 								<div class="field caption-desktop">
 									<div class="caption">
 										<img src="img/locker.png" alt="" class="locker">
-										<h3 class="data-caption">770capital не разглашает личную<br/>информацию клиента.<br/><a href="">Политика конфиденциальности</a> <h3>
+										<h3 class="data-caption">770capital не разглашает личную<br/>информацию клиента.<br/><a href="" id="confid">Политика конфиденциальности</a> <h3>
 									</div>
 								</div>
 								<div class="field field-email">
@@ -374,7 +404,7 @@ $(document).ready(function(){
 								<div class="field field-skype">
 									<p>Skype</p>
 									<div class="flag"></div>
-									<input type="text">
+									<input type="text" id="input-skype">
 									<p class="error">Обязательное поле</p>
 								</div>
 							
