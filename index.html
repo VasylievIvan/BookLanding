@@ -36,11 +36,14 @@ function gradient_resize() {
 	if($(window).width() >= '320') {
 
    	$(".background-middle").width($(window).width());
+   	$(".mob").css("margin-top", ((320 - $(window).width())/2 - 75 + "px" ));
    	if($(window).width() <= '583') {
    	$(".background-middle").css("margin-left", ((320 - $(window).width())/2 + "px" ));
    }
    else {
    	$(".background-middle").css("margin-left", 0 + "px" );
+   	$(".background-middle").css("margin-top", 0 + "px" );
+
 
    }
    }
@@ -49,6 +52,7 @@ function feature_bg_resize() {
 	if($(window).width() >= '320') {
 
    	$(".background-bottom").width($(window).width());
+
    	if($(window).width() <= '583') {
    	$(".background-bottom").css("margin-left", ((320 - $(window).width())/2 + "px" ));
    }
