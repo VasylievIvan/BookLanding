@@ -567,6 +567,9 @@ mark {
 	max-height: 48px;
 	margin-right: 30px;
 }
+.mobile-arrow {
+	display: none;
+}
 
 .arrow-left {
 	margin-left: -30px;
@@ -851,7 +854,22 @@ mark {
 }
 
 @media screen and (max-width: 600px) {
-	
+	.reply-form {
+	margin-top: 60px;
+	}
+	.mobile-arrow {
+		display: block;
+	}
+	.reply-block {
+		flex-direction: column;
+	}
+	.mobile-arrows {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 180px;
+		margin-top: 40px;
+	}
 	.feature p {
 		width: auto;
 	}
@@ -1035,10 +1053,7 @@ mark {
 		display: none;
 	}
 
-	.arrow-left {
-		display: none;
-	}
-	.arrow-right {
+	.desktop-arrow {
 		display: none;
 	}
 
@@ -1051,7 +1066,7 @@ mark {
 	}
 
 	.second-line .field textarea {
-		width: 268px;
+		width: 265px;
 		margin-left: 5px;
 	}
 
