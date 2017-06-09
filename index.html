@@ -16,9 +16,9 @@
 $(window).scroll(function() {
 
 	var st = $(this).scrollTop();
-	if (st>=1900) {
+	if (st>=2150) {
 		$("#scroll-book").css({
-		"transform" : "translate(0%, -" + ((st-1900) /25) + "%"
+		"transform" : "translate(0%, -" + ((st-2150) /25) + "%"
 	});
 	/*if (st>=1500) {
 		$("#scroll-book").css({
@@ -82,10 +82,10 @@ function content_resize() {
 function contact_margin() {
 	if(window.matchMedia("screen and (min-width: 800px)").matches) {
 		if(window.matchMedia("screen and (max-width: 1170px)").matches) {
-	   	$(".contact").css("margin-left", (480 - (1184 - $(window).width()) + "px" ));
+	   	$(".contact").css("margin-left", (460 - (1184 - $(window).width()) + "px" ));
    }
    else{
-   	$(".contact").css("margin-left", 470 + "px" );
+   	$(".contact").css("margin-left", 450 + "px" );
    }
    }
    else{
@@ -319,7 +319,11 @@ $(document).ready(function(){
   			$("#confid").focus();
 
   		}
-});
+	});
+	$('#download').click(function(){
+		$("html, body").stop().animate({scrollTop:0}, 500, 'swing')
+	});
+
 
 });
 
@@ -338,7 +342,7 @@ $(document).ready(function(){
 					<img src="img/logo.png" alt="" class="logo">
 						<div class="contact">
 							<p class="question">Возникли вопросы?</p>
-							<p class="phone">8 800 505 67 04</p>
+							<a href="tel:+388005056704"><p class="phone">8 800 505 67 04</p></a>
 						</div>			
 				</div>
 				<img src="img/book1.png" alt="" class="main-book">
@@ -469,6 +473,7 @@ $(document).ready(function(){
 							чего начинать свою собственную торговлю.
 							Спасибо Вам большое!</i></p>
 						</div>
+						<div class="space"></div>
 						<div class="client bounceInRight wow" data-wow-duration="2s">
 							<img src="img/photo2.png" alt="" class="photo">
 							<div class="data">
@@ -505,7 +510,7 @@ $(document).ready(function(){
 							<div class="second-line">
 								<div class="field">
 									<p>Напишите Ваш отзыв</p>
-									<input type="text">
+									<textarea type="text"></textarea>
 								</div>
 							</div>
 							<input type="button" value="ОСТАВИТЬ ОТЗЫВ" id="comment">
@@ -519,7 +524,7 @@ $(document).ready(function(){
 			<div class="content">
 				<img src="img/book2.png" alt="" id="scroll-book">
 				<h2>Не упустите действительно<br/>ценную информацию!</h2>
-				<a href="#"><input type="button" value="скачать книгу" id="download"></a>
+				<input type="button" value="скачать книгу" id="download">
 				<img src="img/book2.png" alt="" id="no-scroll-book">
 				
 			</div>
