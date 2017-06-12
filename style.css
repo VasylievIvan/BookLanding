@@ -865,6 +865,13 @@ mark {
 }
 
 @media screen and (max-width: 600px) {
+	.arrow-left {
+		z-index: 999;
+
+	}
+	.arrow-right {
+		z-index: 999;
+	}
 	/*ho {
 		max-width: 180px;
 	}

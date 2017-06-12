@@ -233,6 +233,7 @@ $(document).ready(function(){
    block_margin();
 
 
+
    var i = 1;
 
    	let comm1 = new comment(
@@ -269,6 +270,8 @@ $(document).ready(function(){
    	3 : comm3,
    	4 : comm4
    };
+
+   checkArrows(comments, i);
 
 
 
@@ -415,30 +418,66 @@ $(document).ready(function(){
 		$("html, body").stop().animate({scrollTop:0}, 500, 'swing')
 	});
 
+	/*$('.mobile-arrows .arrow-right').click(function(){
+		console.log("mobile arrow right");
+		
+
+			if(comments[i+1] === undefined) {
+				return;
+			} else {
+				fillComment1(comments[i+1]);
+				//fillComment2(comments[i+2]);
+				i++;
+				checkArrows(comments, i);
+			}
+		
+
+
+	});*/
+
 
 	$('.arrow-right').click(function(){
-		if(comments[i+2] === undefined) {
-			return;
-		} else {
-			fillComment1(comments[i+1]);
-			fillComment2(comments[i+2]);
-			i++;
-			checkArrows(comments, i);
-		}
+		console.log("arrow right");
+
+		
+
+			if(comments[i+2] === undefined) {
+				return;
+			} else {
+				fillComment1(comments[i+1]);
+				fillComment2(comments[i+2]);
+				i++;
+				checkArrows(comments, i);
+			}
+		
 
 
 	});
 
 
 	$('.arrow-left').click(function(){
-		if(comments[i-1] === undefined) {
-			return;
-		} else {
-			fillComment1(comments[i-1]);
-			fillComment2(comments[i]);
-			i--;
-			checkArrows(comments, i);
+		console.log("arrow right");
+		if(window.matchMedia("screen and (max-width: 600px)").matches) {
+			if(comments[i-1] === undefined) {
+				return;
+			} else {
+				fillComment1(comments[i-1]);
+				fillComment2(comments[i]);
+				i--;
+				checkArrows(comments, i);
+			}
 
+
+		} else {
+
+			if(comments[i-1] === undefined) {
+				return;
+			} else {
+				fillComment1(comments[i-1]);
+				fillComment2(comments[i]);
+				i--;
+				checkArrows(comments, i);
+			}
 		}
 
 
