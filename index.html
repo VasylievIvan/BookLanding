@@ -6,16 +6,16 @@
 
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&amp;subset=cyrillic" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="animate.css">
 	<script src="wow.min.js"></script>
 	<script type="text/javascript">
 
 
-$(window).scroll(function() {
+$(window).scroll(function() {   /*тут паралаксы для двух книг*/
 
-	var st = $(this).scrollTop();
+	var st = $(this).scrollTop();  
 	if (st>=2150) {
 		$("#scroll-book").css({
 		"transform" : "translate(0%, -" + ((st-2150) /25) + "%"
@@ -33,7 +33,7 @@ $(window).scroll(function() {
 	
 });
 
-function gradient_resize() {
+function gradient_resize() {         /*растягивание градиента*/
 	if(window.matchMedia("screen and (min-width: 320px)").matches) {
 
    	$(".background-middle").width($(window).width()+20);
@@ -52,7 +52,7 @@ function gradient_resize() {
    	$(".background-middle").width('340px');
    }
 }
-function feature_bg_resize() {
+function feature_bg_resize() {        /*растягивание фона блока фич*/
 	if(window.matchMedia("screen and (min-width: 320px)").matches) {
 
    	$(".background-bottom").width($(window).width()+20);
@@ -71,7 +71,7 @@ function feature_bg_resize() {
    	$(".background-bottom").width('340px');
    }
 }
-function content_resize() {
+function content_resize() {			/*ресайз блока контанта под размер экрана*/
 	if(window.matchMedia("screen and (min-width: 601px)").matches) {
 		if(window.matchMedia("screen and (max-width: 1170px)").matches) {
 	   	$(".content").width($(window).width() - 60);
@@ -84,7 +84,7 @@ function content_resize() {
    	$(".content").width(280);
    }
 }
-function contact_margin() {
+function contact_margin() {            /*отступ блока с номером телефона*/
 	if(window.matchMedia("screen and (min-width: 800px)").matches) {
 		if(window.matchMedia("screen and (max-width: 1170px)").matches) {
 	   	$(".contact").css("margin-left", (460 - (1184 - $(window).width()) + "px" ));
@@ -103,7 +103,7 @@ function contact_margin() {
 	}}*/
 }
 
-function block_margin() {
+function block_margin() {           /*центрирование блока с полями ввода*/
 	if(window.matchMedia("screen and (min-width: 601px)").matches) {
 		if(window.matchMedia("screen and (max-width: 980px)").matches) {
 	   	$(".block").css("margin-left", (($(window).width() - 640)/2 + "px" ));
@@ -127,7 +127,7 @@ function block_margin() {
 	}}*/
 }
 
-function book_resize() {
+function book_resize() {         /*ресайз главной книги*/
 	if(window.matchMedia("screen and (min-width: 981px)").matches) {
 		if(window.matchMedia("screen and (max-width: 1160px)").matches) {
 			$(".main-book").css("display", "block" );
@@ -149,7 +149,7 @@ function book_resize() {
    	$(".main-book").css("margin-right", -20 + "px" );
    }
 }
-function book2_resize() {
+function book2_resize() {       /*ресайз другой книги*/
 	if(window.matchMedia("screen and (min-width: 981px)").matches) {
 		if(window.matchMedia("screen and (max-width: 981px)").matches) {
 			$("#scroll-book").css("display", "block" );
@@ -168,25 +168,111 @@ function book2_resize() {
    	$("#scroll-book").css("margin-top", 25 + "px" );
    }
 }
+
+
+function fillComment1(commentData) {
+	$("#comment1 .photo").attr("src", commentData.image);
+	$("#comment1 .who i").text(commentData.who);
+	$("#comment1 .skype i").text(commentData.skype);
+	$("#comment1 p i").text(commentData.text);
+
+}
+
+function fillComment2(commentData) {
+	$("#comment2 .photo").attr("src", commentData.image);
+	$("#comment2 .who i").text(commentData.who);
+	$("#comment2 .skype i").text(commentData.skype);
+	$("#comment2 p i").text(commentData.text);
+
+}
+
+function checkArrows(comments, i) {
+	if(comments[i-1] === undefined) {
+		$(".arrow-left").css("opacity", "0.3");
+	} else {
+		$(".arrow-left").css("opacity", "1");
+	}
+
+	if(comments[i+2] === undefined) {
+		$(".arrow-right").css("opacity", "0.3");
+	} else {
+		$(".arrow-right").css("opacity", "1");
+	}
+
+}
+
+class comment {
+   	constructor(image, who, skype, text){
+   		this.image = image;
+   		this.who = who;
+   		this.skype = skype;
+   		this.text = text;
+   	}
+   };
+
 $(window).resize(function() {
 	gradient_resize();
-	feature_bg_resize()
-	content_resize()
-	contact_margin()
-	book_resize()
-	book2_resize()
-	block_margin()
+	feature_bg_resize();
+	content_resize();
+	contact_margin();
+	book_resize();
+	book2_resize();
+	block_margin();
 
 });
+
+
 $(document).ready(function(){   
    new WOW().init();
    gradient_resize();
-   feature_bg_resize()
-   content_resize()
-   contact_margin()
-   book_resize()
-   book2_resize()
-   block_margin()
+   feature_bg_resize();
+   content_resize();
+   contact_margin();
+   book_resize();
+   book2_resize();
+   block_margin();
+
+
+   var i = 1;
+
+   	let comm1 = new comment(
+   		"img/photo1.png",
+   		 "Петр Касьянов, Москва",
+   		 "skype: kasya73",
+   		 "Лично мне эта электронная книга очень помогла	разобраться в том, что же такое финансовый рынок. В интернете информации много, но в основном реклама. Прочитав Вашу книгу, я понял чего начинать свою собственную торговлю. Спасибо Вам большое!" );
+
+   	let comm2 = new comment(
+   		"img/photo2.png",
+   		 'Антон Смирнов, Самара',
+   		 "skype: smirnovant999",
+   		 "Отличное описание онлайн трейдинга! Все основные термины, особенности рынка и его участники, инструменты торговли, примеры заработка. Вся информация о финансовом рынке написана кратко и понятно. Даже опытным трейдерам будет интересно!" );
+
+   	let comm3 = new comment(
+   		"img/photo1.png",
+   		 "Петр Касьянов, Москва",
+   		 "skype: kasya73",
+   		 "Лично мне эта электронная книга очень помогла	разобраться в том, что же такое финансовый рынок. В интернете информации много, но в основном реклама. Прочитав Вашу книгу, я понял чего начинать свою собственную торговлю. Спасибо Вам большое!" );
+
+   	let comm4 = new comment(
+   		"img/photo2.png",
+   		 'Антон Смирнов, Самара',
+   		 "skype: smirnovant999",
+   		 "Отличное описание онлайн трейдинга! Все основные термины, особенности рынка и его участники, инструменты торговли, примеры заработка. Вся информация о финансовом рынке написана кратко и понятно. Даже опытным трейдерам будет интересно!" );
+
+   
+   fillComment1(comm1);
+   fillComment2(comm2);
+
+   var comments = {
+   	1 : comm1,
+   	2 : comm2,
+   	3 : comm3,
+   	4 : comm4
+   };
+
+
+
+
    	$("#input-first-name").focusout(function(){
    		if ($("#input-first-name").val().length == 0 ) {
    			$(".field-first-name .flag").show();
@@ -330,6 +416,35 @@ $(document).ready(function(){
 	});
 
 
+	$('.arrow-right').click(function(){
+		if(comments[i+2] === undefined) {
+			return;
+		} else {
+			fillComment1(comments[i+1]);
+			fillComment2(comments[i+2]);
+			i++;
+			checkArrows(comments, i);
+		}
+
+
+	});
+
+
+	$('.arrow-left').click(function(){
+		if(comments[i-1] === undefined) {
+			return;
+		} else {
+			fillComment1(comments[i-1]);
+			fillComment2(comments[i]);
+			i--;
+			checkArrows(comments, i);
+
+		}
+
+
+	});
+
+
 });
 
 </script>
@@ -464,35 +579,27 @@ $(document).ready(function(){
 					
 					
 					
-						<div class="client bounceInLeft wow client-desktop" data-wow-duration="2s">
-							<img src="img/photo1.png" alt="" class="photo">
+						<div class="client bounceInLeft wow " data-wow-duration="2s" id="comment1">
+							<img src="" alt="" class="photo">
 							<div class="data">
-								<h3 class="who"><i>Петр Касьянов, Москва</i><br/></h3>
-								<h3 class="skype"><i>skype:kasya73</i></h3>
+								<h3 class="who"><i></i><br/></h3>
+								<h3 class="skype"><i></i></h3>
 							</div>
 							<p><i>
-							Лично мне эта электронная книга очень помогла
-							разобраться в том, что же такое финансовый
-							рынок. В интернете информации много, но в
-							основном реклама. Прочитав Вашу книгу, я понял 
-							чего начинать свою собственную торговлю.
-							Спасибо Вам большое!</i></p>
+							</i></p>
 						</div>
 						<div class="space"></div>
-						<div class="client bounceInRight wow" data-wow-duration="2s">
+						<div class="client bounceInRight wow client-desktop" data-wow-duration="2s" id="comment2">
 							<img src="img/photo2.png" alt="" class="photo">
 							<div class="data">
-								<h3 class="who"><i>Антон Смирнов,<br class="br-mobile"/> Самара</i><br/></h3>
-								<h3 class="skype"><i>skype:<br class="br-mobile"/>smirnovant999</i></h3>
+								<h3 class="who"><i></i><br/></h3>
+								<h3 class="skype"><i></i></h3>
 							</div>
-							<p><i>Отличное описание онлайн трейдинга! Все основные
-							термины, особенности рынка и его участники,
-							инструменты торговли, примеры заработка. Вся
-							информация о финансовом рынке написана кратко и
-							понятно. Даже опытным трейдерам будет интересно!</i></p>
+							<p><i></i></p>
 						</div>
 
-					
+
+							
 					<img src="img/arrow-right.png" alt="" class="arrow-right desktop-arrow">
 					<div class="mobile-arrows">
 						<img src="img/arrow-left.png" alt="" class="arrow-left mobile-arrow">
