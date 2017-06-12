@@ -686,6 +686,9 @@ mark {
 	.main h1 {
 		font-size: 32px;
 	}
+	.background-middle.tab {
+		top: -100px;
+	}
 
 
 	.scroll-book {
