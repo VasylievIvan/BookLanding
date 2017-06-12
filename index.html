@@ -16,9 +16,9 @@
 $(window).scroll(function() {   /*тут паралаксы для двух книг*/
 
 	var st = $(this).scrollTop();  
-	if (st>=2150) {
+	if (st>=2250) {
 		$("#scroll-book").css({
-		"transform" : "translate(0%, -" + ((st-2150) /25) + "%"
+		"transform" : "translate(0%, -" + ((st-2250) /25) + "%"
 	});
 	/*if (st>=1500) {
 		$("#scroll-book").css({
@@ -55,7 +55,7 @@ function gradient_resize() {         /*растягивание градиент
 function feature_bg_resize() {        /*растягивание фона блока фич*/
 	if(window.matchMedia("screen and (min-width: 320px)").matches) {
 
-   	$(".background-bottom").width($(window).width()+20);
+   	$(".background-bottom").width($(window).width()+50);
 
    	if(window.matchMedia("screen and (max-width: 600px)").matches) {
    	$(".background-bottom").css("margin-left", ((300 - $(window).width())/2 + "px" ));
@@ -68,7 +68,7 @@ function feature_bg_resize() {        /*растягивание фона бло
    }
    else {
    	$(".background-bottom").css("margin-left", 0 + "px" );
-   	$(".background-bottom").width('340px');
+   	$(".background-bottom").width('370px');
    }
 }
 function content_resize() {			/*ресайз блока контанта под размер экрана*/
